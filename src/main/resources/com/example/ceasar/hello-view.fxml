@@ -5,24 +5,49 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" prefHeight="515.0" prefWidth="307.0" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ceasar.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <Label maxHeight="100.0" prefHeight="18.0" prefWidth="277.0" text="Введите слово, которое хотите зашифровать" />
+    <padding>        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>   <Label maxHeight="100.0" prefHeight="18.0" prefWidth="277.0" text="Введите слово, которое хотите зашифровать" />
 
     <TextField fx:id="inputForEncryption" />
 
     <Label fx:id="welcomeText" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="283.0" text="Введите путь исходного файла" />
-   <TextField fx:id="inputFile" />
+    <GridPane>
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.142822265625" minWidth="10.0" prefWidth="211.71429443359375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.4285888671875" minWidth="10.0" prefWidth="56.28570556640625" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <TextField fx:id="inputFile" />
+            <Button onAction="#SetInputFile" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="..." GridPane.columnIndex="1" />
+        </children>
+    </GridPane>
     <ComboBox fx:id="choiseLanguage" prefWidth="150.0" />
     <ComboBox fx:id="choiseKey" prefWidth="150.0" />
- <Button alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Расшифровать" onAction="#DecryptionButtonClick"/>
+    <Button alignment="CENTER" mnemonicParsing="false" onAction="#DecryptionButtonClick" prefHeight="25.0" prefWidth="139.0" text="Расшифровать" />
     <Button onAction="#onHelloButtonClick" prefHeight="25.0" prefWidth="143.0" text="Зашифровать" />
-   <Label prefHeight="17.0" prefWidth="287.0" text="Введите путь выходного файла" />
-   <TextField fx:id="outputFile" />
-   <Label prefHeight="17.0" prefWidth="338.0" text="Результат" />
+    <Label prefHeight="17.0" prefWidth="287.0" text="Введите путь выходного файла" />
+    <GridPane>
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.71429443359375" minWidth="10.0" prefWidth="211.28570556640625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.4285888671875" minWidth="10.0" prefWidth="51.71429443359375" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+        </rowConstraints>
+        <children>
+            <TextField fx:id="outputFile" prefHeight="25.0" prefWidth="154.0" />
+            <Button onAction="#SetOutputFile" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="..." GridPane.columnIndex="1" />
+        </children>
+    </GridPane>
+    <Label prefHeight="17.0" prefWidth="338.0" text="Результат" />
     <TextField fx:id="output" prefHeight="9.0" prefWidth="267.0" />
 </VBox>
